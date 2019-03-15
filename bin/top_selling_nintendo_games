@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-#Audrey, this is your RUNFILE
+#This is your RUNFILE
 
-require_relative '../lib/top_selling_nintendo_games'
+require_relative '../lib/top_selling_nintendo_games.rb'
 
 
 

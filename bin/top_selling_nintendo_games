@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
-require './lib/top_selling_nintendo_games'
+#Audrey, this is your RUNFILE
+
+require_relative '../lib/top_selling_nintendo_games'
 
 
 

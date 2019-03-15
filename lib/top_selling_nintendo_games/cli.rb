@@ -15,7 +15,10 @@ class TopSellingNintendoGames::Game #"NameSpaced"
     #   1. Super Smash Bros. Ultimate - released Dec 07, 2018 - $59.99 - Switch
     #   2. Kirby's Extra Epic Yarn - released Mar 08, 2019 - $39.99 - 3DS
     # DOC
-    #@games = TopSellingNintendoGames::Game.today
+    @games = TopSellingNintendoGames::Game.today
+    @games.each.with_index(1) do |game, index|
+      puts "#{index}. #{game.name} - released: #{game.release_date} - #{game.price} for #{game.console} "
+    end
   end
 
   def menu
@@ -25,6 +28,13 @@ class TopSellingNintendoGames::Game #"NameSpaced"
     puts "Please select a list number for more info on that game, 'back' to go back to the main menu, or 'exit' to leave."
     while input != "exit"
       input = gets.strip.downcase
+
+      # if input.to_i > 0
+      #   puts @games[input.to_i-1]
+      # elsif input == "list"
+      #   list_games
+      # end
+
       case input
       when "1"
         puts "More info on deal 1..."
@@ -34,8 +44,8 @@ class TopSellingNintendoGames::Game #"NameSpaced"
         puts continue_prompt
       when "back"
         list_games
-      else #Invalid input
-        puts "I'm sorry, your input was invalid. Please try again!"
+      # else #Invalid input -- needs to be fixed to not engage on 'exit'
+        # puts "I'm sorry, your input was invalid. Please try again!"
       end
     end
   end

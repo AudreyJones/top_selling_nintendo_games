@@ -10,11 +10,12 @@ class TopSellingNintendoGames::Game #"NameSpaced"
   end
 
   def list_games
-    puts <<-DOC.gsub /^\s*/, ''
-      Here are the top-selling Nintendo games:
-      1. Super Smash Bros. Ultimate - released Dec 07, 2018 - $59.99 - Switch
-      2. Kirby's Extra Epic Yarn - released Mar 08, 2019 - $39.99 - 3DS
-    DOC
+    # puts <<-DOC.gsub /^\s*/, ''
+    #   Here are the top-selling Nintendo games:
+    #   1. Super Smash Bros. Ultimate - released Dec 07, 2018 - $59.99 - Switch
+    #   2. Kirby's Extra Epic Yarn - released Mar 08, 2019 - $39.99 - 3DS
+    # DOC
+    #@games = TopSellingNintendoGames::Game.today
   end
 
   def menu
@@ -33,6 +34,8 @@ class TopSellingNintendoGames::Game #"NameSpaced"
         puts continue_prompt
       when "back"
         list_games
+      else #Invalid input
+        puts "I'm sorry, your input was invalid. Please try again!"
       end
     end
   end

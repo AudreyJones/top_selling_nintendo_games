@@ -10,10 +10,8 @@ class TopSellingNintendoGames::Game #"NameSpaced"
   end
 
   def list_games
-    # puts <<-DOC.gsub /^\s*/, ''
-    #   Here are the top-selling Nintendo games:
-    #   1. Super Smash Bros. Ultimate - released Dec 07, 2018 - $59.99 - Switch
-    #   2. Kirby's Extra Epic Yarn - released Mar 08, 2019 - $39.99 - 3DS
+    puts "Here are the top-selling Nintendo games:"
+    # <<-DOC.gsub /^\s*/, ''
     # DOC
     @games = TopSellingNintendoGames::Game.today
     @games.each.with_index(1) do |game, index|
@@ -25,28 +23,19 @@ class TopSellingNintendoGames::Game #"NameSpaced"
     input = nil
     continue_prompt = "Would you like info about any other game?"
     puts "Which game would you like more info on?"
-    puts "Please select a list number for more info on that game, 'back' to go back to the main menu, or 'exit' to leave."
+    puts "Please select a list number for more info on that game or 'exit' to leave."
     while input != "exit"
       input = gets.strip.downcase
 
-      # if input.to_i > 0
-      #   puts @games[input.to_i-1]
-      # elsif input == "list"
-      #   list_games
-      # end
-
-      case input
-      when "1"
-        puts "More info on deal 1..."
-        puts continue_prompt
-      when "2"
-        puts "More info on deal 2..."
-        puts continue_prompt
-      when "back"
+      if input.to_i > 0
+        the_game = @games[input.to_i-1]
+        puts "#{the_game.name} - released: #{the_game.release_date} - #{the_game.price} for #{the_game.console} "
+      elsif input == "list"
         list_games
-      # else #Invalid input -- needs to be fixed to not engage on 'exit'
-        # puts "I'm sorry, your input was invalid. Please try again!"
+      else
+        "I'm sorry, your input was invalid. Please try again!"
       end
+
     end
   end
 

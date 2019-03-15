@@ -4,11 +4,7 @@ class TopSellingNintendoGames::Game
   def self.today
 
     #should return instances of Game
-    puts <<-DOC.gsub /^\s*/, ''
-      Here are the top-selling Nintendo games:
-      1. Super Smash Bros. Ultimate - released Dec 07, 2018 - $59.99 - Switch
-      2. Kirby's Extra Epic Yarn - released Mar 08, 2019 - $39.99 - 3DS
-    DOC
+
 
     game_1 = self.new
     game_1.name = "Super Smash Bros. Ultimate"

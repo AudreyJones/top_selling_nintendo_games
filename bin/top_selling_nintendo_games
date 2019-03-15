@@ -3,4 +3,4 @@
 require './lib/top_selling_nintendo_games'
 
 
-TopSellingNintendoGames::Game.new.print
+TopSellingNintendoGames::Game.new.start

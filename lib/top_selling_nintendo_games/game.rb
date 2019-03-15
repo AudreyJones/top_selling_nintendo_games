@@ -9,12 +9,10 @@ class TopSellingNintendoGames::Game
   def self.scraped_games
     games = []
 
-    games << Scraper
+    # games << Scraper
     #capture site HTML
     #extract game attributes
     #instantiate a new game obj with extracted attr's
-
-
     games
   end
 

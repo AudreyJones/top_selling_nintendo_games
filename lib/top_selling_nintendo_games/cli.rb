@@ -3,7 +3,8 @@ require 'pry'
 
 class TopSellingNintendoGames::Game #"NameSpaced"
   def start
-    puts "Welcome!"
+    puts "Hello!"
+    TopSellingNintendoGames::Scraper.scraper #For testing like i'm running
     list_games
     menu
     exit_app

@@ -1,5 +1,8 @@
+require 'pry'
+
+#Audrey, this is your Controller!
 class TopSellingNintendoGames::Game #"NameSpaced"
   def print
-    puts "This is working"
+    puts "Here are the top-selling Nintendo Games!"
   end
 end

@@ -1,5 +1,5 @@
 class TopSellingNintendoGames::Game ##GAME
-  attr_accessor :title, :release_date, :price, :console, :url
+  attr_accessor :title, :release_date, :price, :console, :url, :game_info, :add_on_content, :reviews
   attr_reader :all
   @@all = []
   @@complete_games_collection = []
@@ -19,6 +19,15 @@ class TopSellingNintendoGames::Game ##GAME
       new_game.send("#{key}=",value)
     end
     new_game
+  end
+
+  def self.give_details
+    detail_links = TopSellingNintendoGames::Scraper.scraped_details
+    detail_links.each do |key,value|
+      self.send("#{key}=",value)
+    end
+    binding.pry
+    detail_links
   end
 
   def self.complete_games_collection

@@ -3,16 +3,14 @@ require 'pry'
 
 class TopSellingNintendoGames::Game #"NameSpaced"
   def start
-    puts "Hello!"
-    TopSellingNintendoGames::Scraper.scraper #For testing like i'm running
+    puts "Hello! It's-a me, the Nintendo Top Selling Game App!"
+    TopSellingNintendoGames::Game
     list_games
     menu
-    exit_app
   end
 
   def list_games
     puts "Here are the top-selling Nintendo games:"
-
     @games = TopSellingNintendoGames::Game.today
     @games.each.with_index(1) do |game, index|
       puts "#{index}. #{game.name} - released: #{game.release_date} - #{game.price} for #{game.console} "
@@ -22,9 +20,11 @@ class TopSellingNintendoGames::Game #"NameSpaced"
   def menu
     input = nil
     continue_prompt = "Would you like info about any other game?"
-    puts "Which game would you like more info on?"
-    puts "Please select a list number for more info on that game or 'exit' to leave."
-    while input != "exit"
+    puts "Which game would you like more info on? You can enter:"
+    puts "- a game number for more info on that particular game"
+    puts "- 'list' to return all of the current top-selling games"
+    puts "- or 'exit' to leave the app"
+    while input == nil
       input = gets.strip.downcase
 
       if input.to_i > 0
@@ -32,8 +32,10 @@ class TopSellingNintendoGames::Game #"NameSpaced"
         puts "#{the_game.name} - released: #{the_game.release_date} - #{the_game.price} for #{the_game.console} "
       elsif input == "list"
         list_games
+      elsif input == "exit"
+        exit_app
       else
-        "I'm sorry, your input was invalid. Please try again!"
+        puts "I'm sorry, your input was invalid. Please try again!"
       end
 
     end

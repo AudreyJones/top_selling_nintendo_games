@@ -5,6 +5,7 @@ class TopSellingNintendoGames::Game ##GAME
 
   def initialize ## ALL Games created will have this done to them
     @@all << self
+    @attributes = TopSellingNintendoGames::Scraper.scraper
   end
 
   def self.all
@@ -18,16 +19,8 @@ class TopSellingNintendoGames::Game ##GAME
   def self.new_from_site #This is your Custom Constructor to create games with properties from their title sites!
     new_game = self.create
 
-# binding.pry
-    # doc.css("ul.games").each {|game|
-    #   new_game.url = game.css("a").attr("href").text
-    #   game.css("div.info").each {|attribute|
-    #     new_game.title = attribute.css("h3").text
-    #     new_game.release_date = attribute.css("p").first.children.last.text.strip
-    #     new_game.price = attribute.css("p.b3.row-price").text
-    #     new_game.console = attribute.css("p.b4").last.attr("data-system")
-    #   }
-    # }
+    @attributes
+    binding.pry
   end
 
   def self.today

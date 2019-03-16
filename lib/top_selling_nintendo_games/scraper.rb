@@ -1,9 +1,13 @@
 class TopSellingNintendoGames::Scraper          # SCRAPER
 
+  def initialize
+
+  end
+
   def self.scraper
     html = "https://www.nintendo.com/games/bestsellers"
     doc = Nokogiri::HTML(open(html))
-    attributes = {}   # Level 1 Info
+      attributes = {} # Level 1 Info
     game_details = {} # Level 2 Info
     doc.css("ul.games").each {|game|
       url = "https://www.nintendo.com#{game.css("a").attr("href").text}"
@@ -23,6 +27,7 @@ class TopSellingNintendoGames::Scraper          # SCRAPER
           }
 
     }
-    binding.pry
+    attributes    #=> {:url=>"..", :title=>"..", :release_date=>"Jul 02, 2015", :price=>"$9.99", :console=>"WiiU"}
+    game_details  #=> {:game_info=>"#game-info", :add_on_content=>"#add-on-content", :reviews=>"#industry-quotes"}
   end
 end

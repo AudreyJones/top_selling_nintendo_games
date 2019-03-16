@@ -4,17 +4,17 @@ require 'pry'
 class TopSellingNintendoGames::Game #"NameSpaced"
   def start
     puts "Hello! It's-a me, the Nintendo Top Selling Game App!"
-    TopSellingNintendoGames::Scraper.scraper
+    TopSellingNintendoGames::Game.new_from_site
     list_games
     menu
   end
 
   def list_games
     puts "Here are the top-selling Nintendo games:"
-    @games = TopSellingNintendoGames::Game.today
-    @games.each.with_index(1) do |game, index|
-      puts "#{index}. #{game.name} - released: #{game.release_date} - #{game.price} for #{game.console} "
-    end
+    # @games = TopSellingNintendoGames::Game.today
+    # @games.each.with_index(1) do |game, index|
+    #   puts "#{index}. #{game.name} - released: #{game.release_date} - #{game.price} for #{game.console} "
+    # end
   end
 
   def menu

@@ -4,7 +4,7 @@ require 'pry'
 class TopSellingNintendoGames::Game #"NameSpaced"
   def start
     puts "Hello! It's-a me, the Nintendo Top Selling Game App!"
-    TopSellingNintendoGames::Game
+    TopSellingNintendoGames::Scraper.scraper
     list_games
     menu
   end

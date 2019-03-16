@@ -15,28 +15,15 @@ class TopSellingNintendoGames::Scraper
         attributes[:console] = attribute.css("p.b4").last.attr("data-system")
       }
       open_url = Nokogiri::HTML(open(url))
-      
+
       open_url.css("article#game-detail").each {|title|
       binding.pry
+      #Game Info: title.css("div.wrapper a")[0].attr("href")
+      # Add-on Content: title.css("div.wrapper a")[1].attr("href")
+      # Reviews/Industry Quotes: title.css("div.wrapper a")[2].attr("href") #=> "#industry-quotes" (link)
           }
     }
 
 
   end
-
-#   def self.level_two_scraper
-#     #Second Level might be to crack the url of each title and pull details from each separate title
-#     # CLEAN UP LATER: repetitive scraping
-#     html = "https://www.nintendo.com/games/bestsellers"
-#     doc = Nokogiri::HTML(open(html))
-#     url =   doc.css("ul.games a").attr("href").text #=> "/games/detail/XYfGbmHybciAx7wE3EiKIu8c32ip0ULk"
-#     details = {}
-#     open_url = Nokogiri::HTML(open(url))
-#     open_url.css.each {|title|
-# binding.pry
-#     }
-#
-#   end
-
-
 end

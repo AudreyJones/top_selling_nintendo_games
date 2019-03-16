@@ -2,7 +2,7 @@ class TopSellingNintendoGames::Scraper          # SCRAPER
 
 # html = "https://www.nintendo.com/games/bestsellers"
 
-  def self.scraper
+  def self.scraped_attributes
     html = "https://www.nintendo.com/games/bestsellers"
     doc = Nokogiri::HTML(open(html))
       attributes = {} # Level 1 Info

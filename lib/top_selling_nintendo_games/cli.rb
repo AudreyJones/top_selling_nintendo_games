@@ -9,9 +9,9 @@ class TopSellingNintendoGames::Game #"NameSpaced"
   end
 
   def list_games
-    puts "Here are the top-selling Nintendo games:"
-    games = TopSellingNintendoGames::Game.complete_games_collection
-    list = games.each.with_index(1) do |game, index|
+    puts "Currently, these are the top-selling Nintendo games:"
+    @games = TopSellingNintendoGames::Game.complete_games_collection
+    list = @games.each.with_index(1) do |game, index|
       puts "#{index}. #{game.title} - released: #{game.release_date} - #{game.price} for #{game.console} "
     end
     list
@@ -19,25 +19,22 @@ class TopSellingNintendoGames::Game #"NameSpaced"
 
   def menu
     input = nil
-    continue_prompt = "Would you like info about any other game?"
-    puts "Which game would you like more info on? You can enter:"
-    puts "- a game number for more info on that particular game"
-    puts "- 'list' to return all of the current top-selling games"
-    puts "- or 'exit' to leave the app"
-    while input == nil
-      input = gets.strip.downcase
-
-      if input.to_i > 0
-        the_game = @games[input.to_i-1]
-        puts "#{the_game.name} - released: #{the_game.release_date} - #{the_game.price} for #{the_game.console} "
-      elsif input == "list"
-        list_games
-      elsif input == "exit"
-        exit_app
-      else
-        puts "I'm sorry, your input was invalid. Please try again!"
+    continue_prompt = "Pick a game and let's-a go!"
+    puts "#{continue_prompt} Or you can enter 'exit' to leave the app!"
+    input = gets.strip.downcase
+    if input == "exit"
+      exit_app
+    else
+      while input != "exit" do
+        if input.to_i > 0
+          the_game = @games[input.to_i-1]
+          puts "#{the_game.title} - released: #{the_game.release_date} - #{the_game.price} for #{the_game.console} "
+        elsif input == "list"
+          # list_games #Infinite Loop Issue
+        else
+          puts "Oh no! Your input was invalid. Please try again!"
+        end
       end
-
     end
   end
 

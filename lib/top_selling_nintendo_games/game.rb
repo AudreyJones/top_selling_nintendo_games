@@ -14,7 +14,7 @@ class TopSellingNintendoGames::Game ##GAME
 
   def self.new_from_site #This is your Custom Constructor:create games with properties from their title sites!
     new_game = self.create
-    attributes = TopSellingNintendoGames::Scraper.scraper
+    attributes = TopSellingNintendoGames::Scraper.scraped_attributes
     attributes.each do |key,value|
       new_game.send("#{key}=",value)
     end

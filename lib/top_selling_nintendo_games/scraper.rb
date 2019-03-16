@@ -1,8 +1,6 @@
 class TopSellingNintendoGames::Scraper          # SCRAPER
 
-  def initialize
-
-  end
+# html = "https://www.nintendo.com/games/bestsellers"
 
   def self.scraper
     html = "https://www.nintendo.com/games/bestsellers"
@@ -28,6 +26,6 @@ class TopSellingNintendoGames::Scraper          # SCRAPER
 
     }
     attributes    #=> {:url=>"..", :title=>"..", :release_date=>"Jul 02, 2015", :price=>"$9.99", :console=>"WiiU"}
-    game_details  #=> {:game_info=>"#game-info", :add_on_content=>"#add-on-content", :reviews=>"#industry-quotes"}
+                  #=> {:game_info=>"#game-info", :add_on_content=>"#add-on-content", :reviews=>"#industry-quotes"}
   end
 end

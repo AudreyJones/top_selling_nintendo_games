@@ -5,7 +5,6 @@ class TopSellingNintendoGames::Game ##GAME
 
   def initialize ## ALL Games created will have this done to them
     @@all << self
-    @attributes = TopSellingNintendoGames::Scraper.scraper
   end
 
   def self.all
@@ -16,15 +15,21 @@ class TopSellingNintendoGames::Game ##GAME
     new_game = self.new
   end
 
-  def self.new_from_site #This is your Custom Constructor to create games with properties from their title sites!
-    new_game = self.create
+  def self.new_from_site #This is your Custom Constructor:create games with properties from their title sites!
 
-    @attributes
-    binding.pry
+    new_game = self.create
+    attributes = TopSellingNintendoGames::Scraper.scraper
+
+# New Game is populated with scraped data!
+    attributes.each do |key,value|
+      new_game.send("#{key}=",value)
+    end
+binding.pry
+    new_game
   end
 
   def self.today
-    # self.games_with_attr
+    # self.new_from_site
   end
 
 

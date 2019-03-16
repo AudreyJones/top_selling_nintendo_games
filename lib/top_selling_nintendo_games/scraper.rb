@@ -15,7 +15,8 @@ class TopSellingNintendoGames::Scraper
         attributes[:console] = attribute.css("p.b4").last.attr("data-system")
       }
       open_url = Nokogiri::HTML(open(url))
-      open_url.css.each {|title|
+      
+      open_url.css("article#game-detail").each {|title|
       binding.pry
           }
     }

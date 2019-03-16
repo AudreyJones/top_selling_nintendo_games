@@ -12,8 +12,7 @@ class TopSellingNintendoGames::Game #"NameSpaced"
 
   def list_games
     puts "Here are the top-selling Nintendo games:"
-    # <<-DOC.gsub /^\s*/, ''
-    # DOC
+
     @games = TopSellingNintendoGames::Game.today
     @games.each.with_index(1) do |game, index|
       puts "#{index}. #{game.name} - released: #{game.release_date} - #{game.price} for #{game.console} "

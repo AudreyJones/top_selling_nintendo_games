@@ -1,6 +1,4 @@
-class TopSellingNintendoGames::Scraper          # SCRAPER
-
-# html = "https://www.nintendo.com/games/bestsellers"
+class TopSellingNintendoGames::Scraper
 
   def self.scraped_attributes
     html = "https://www.nintendo.com/games/bestsellers"

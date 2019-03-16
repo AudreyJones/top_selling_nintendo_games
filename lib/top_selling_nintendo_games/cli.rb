@@ -3,7 +3,7 @@ require 'pry'
 
 class TopSellingNintendoGames::Game #"NameSpaced"
   def start
-    TopSellingNintendoGames::Game.give_details
+    TopSellingNintendoGames::Game.add_properties
     puts "Hello! It's-a me, the Nintendo Top Selling Game App!"
     list_games
     menu

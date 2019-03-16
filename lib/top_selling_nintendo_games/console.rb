@@ -1,3 +1,0 @@
-class TopSellingNintendoGames::console
-
-end

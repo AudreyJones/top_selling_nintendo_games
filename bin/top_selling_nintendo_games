@@ -6,4 +6,4 @@ require_relative '../lib/top_selling_nintendo_games.rb'
 
 
 
-TopSellingNintendoGames::Game.new.start
+TopSellingNintendoGames::CLI.new.start

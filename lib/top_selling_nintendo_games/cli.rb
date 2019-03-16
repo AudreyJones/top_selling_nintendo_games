@@ -1,13 +1,16 @@
 require 'pry'
-class TopSellingNintendoGames::Game
+class TopSellingNintendoGames::CLI
   def start
     TopSellingNintendoGames::Scraper.scrape_index
+    binding.pry
     puts "Hello! It's-a me, the Nintendo Top Selling Game App! In-we-go!"
+    puts ""
     list_games
   end
 
   def list_games
     puts "Top-selling Nintendo games:"
+    puts ""
     #Design-y stuff here
     show_menu
   end
@@ -15,6 +18,7 @@ class TopSellingNintendoGames::Game
   def show_menu
     TopSellingNintendoGames::Game.all.each.with_index(1) do |game, index|
       puts "#{index}. #{game.title} - released: #{game.release_date} - #{game.price} for the #{game.console}"
+      puts ""
     end
     make_a_selection
   end
@@ -24,11 +28,10 @@ class TopSellingNintendoGames::Game
     input = gets.strip.downcase
       if input.to_i.between?(1,TopSellingNintendoGames::Game.all.length)
         game = TopSellingNintendoGames::Game.all.find do |game|
-          index == input
+          index == input                    # Needs to be debugged
         end
       TopSellingNintendoGames::Scraper.scrape_title(game)
         show_game_info(game)
-
       else
         puts ""
         puts "Oh no! Your input was invalid. Please try again!"

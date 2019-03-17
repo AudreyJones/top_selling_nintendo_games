@@ -25,16 +25,6 @@ class TopSellingNintendoGames::Scraper
     end
   end
 
-    # doc.css("ul.games").each {|game|
-    #   url = "https://www.nintendo.com#{game.css("a").attr("href").text}"
-    #   attributes[:url] = game.css("a").attr("href").text
-    #   game.css("div.info").each {|attribute|
-    #     attributes[:title] = attribute.css("h3").text
-    #     attributes[:release_date] = attribute.css("p").first.children.last.text.strip
-    #     attributes[:price] = attribute.css("p.b3.row-price").text
-    #     attributes[:console] = attribute.css("p.b4").last.attr("data-system")
-    #   }
-
   def self.scraped_title(game) # Goal: to have these attributes open up specific links!
     game_page = Nokogiri::HTML(open(game_url))
 
@@ -42,12 +32,5 @@ class TopSellingNintendoGames::Scraper
     game.add_on_content = game_page.css("div.wrapper a")[1].attr("href").value
     game.reviews = game_page.css("div.wrapper a")[2].attr("href")
 
-    #   open_url = Nokogiri::HTML(open(url))
-    #   open_url.css("article#game-detail").each {|title|
-    #     game_details[:game_info] = title.css("div.wrapper a")[0].attr("href")
-    #     game_details[:add_on_content] = title.css("div.wrapper a")[1].attr("href")
-    #     game_details[:reviews] = title.css("div.wrapper a")[2].attr("href")
-    #       }
-    # }
   end
 end

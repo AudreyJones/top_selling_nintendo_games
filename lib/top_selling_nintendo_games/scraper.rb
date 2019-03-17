@@ -18,7 +18,7 @@ class TopSellingNintendoGames::Scraper
     temp_game = TopSellingNintendoGames::Game.new(title)
     temp_game.title = title
     temp_game.release_date = release_date
-    temp.price = price
+    temp_game.price = price
     temp_game.console = console
     temp_game.game_url = "https://www.nintendo.com" + game_url
     temp_game

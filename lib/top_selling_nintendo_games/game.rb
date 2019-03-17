@@ -11,4 +11,9 @@ class TopSellingNintendoGames::Game
   def self.all
     @@all
   end
+
+  def open_link
+    system("open '#{game_url}'")
+  end
+
 end

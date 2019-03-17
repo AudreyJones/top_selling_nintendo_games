@@ -1,11 +1,11 @@
-require 'pry'
 class TopSellingNintendoGames::CLI
   def start
+
     TopSellingNintendoGames::Scraper.scrape_index
-    binding.pry
     puts "Hello! It's-a me, the Nintendo Top Selling Game App! In-we-go!"
     puts ""
-    list_games
+    # list_games
+    show_menu
   end
 
   def list_games
@@ -33,7 +33,6 @@ class TopSellingNintendoGames::CLI
       TopSellingNintendoGames::Scraper.scrape_title(game)
         show_game_info(game)
       else
-        puts ""
         puts "Oh no! Your input was invalid. Please try again!"
         puts ""
         show_menu
@@ -52,6 +51,7 @@ class TopSellingNintendoGames::CLI
     #   end
     # end
   def show_game_info(game)
+    # use open links here!!
     # more Design-y things here...however the game info should look!
   end
 

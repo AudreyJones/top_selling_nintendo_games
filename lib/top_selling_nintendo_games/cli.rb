@@ -18,7 +18,6 @@ class TopSellingNintendoGames::CLI
     TopSellingNintendoGames::Game.all.each.with_index(1) do |game, index|
       @index = index
       puts "#{index}. #{game.title} - released: #{game.release_date} - #{game.price} for the #{game.console}"
-      puts ""
     end
     make_a_selection
   end
@@ -29,9 +28,10 @@ class TopSellingNintendoGames::CLI
       if input.to_i.between?(1,TopSellingNintendoGames::Game.all.length)
         game = TopSellingNintendoGames::Game.all.find do |game|
           @index == input
+          TopSellingNintendoGames::Scraper.scraped_title(game)
+            show_game_info(game)
         end
-      TopSellingNintendoGames::Scraper.scraped_title(game)
-        show_game_info(game)
+
       else
         puts "Oh no! Your input was invalid. Please try again!"
         puts ""
@@ -43,12 +43,12 @@ class TopSellingNintendoGames::CLI
     # use open links here!!
     puts "Access #{game}'/s:"
     puts ""
-    puts "The full game description, videos, and more! " + open(game.info)
+    puts "The full game description, videos, and more! " + system(open(game.info))
     puts "Any available add-on content: " + open(game.add_on_content)
     puts "Industry reviews: " + open(game.reviews)
 
 
-    # more Design-y things here...however the game info should look!
+                                                                        # more Design-y things here...however the game info should look!
   end
 
   def select_another_game
@@ -66,7 +66,7 @@ class TopSellingNintendoGames::CLI
   end
 
   def exit_app
-    # Design-y things here too....!
+                                                                        # Design-y things here too....!
     puts "Okie Dokie! Have a great day!"
   end
 

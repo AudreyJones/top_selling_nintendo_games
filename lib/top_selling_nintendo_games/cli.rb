@@ -39,19 +39,15 @@ class TopSellingNintendoGames::CLI
       end
   end
 
-    #   while input != "exit" do
-    #     if input.to_i > 0
-    #       the_game = @games[input.to_i-1]
-    #       puts "#{the_game.title} - released: #{the_game.release_date} - #{the_game.price} for #{the_game.console} "
-    #     elsif input == "list"
-    #       # list_games #Infinite Loop Issue
-    #     else
-    #       puts "Oh no! Your input was invalid. Please try again!"
-    #     end
-    #   end
-    # end
   def show_game_info(game)
     # use open links here!!
+    puts "Access #{game}'/s:"
+    puts ""
+    puts "The full game description, videos, and more! " + open(game.info)
+    puts "Any available add-on content: " + open(game.add_on_content)
+    puts "Industry reviews: " + open(game.reviews)
+
+
     # more Design-y things here...however the game info should look!
   end
 

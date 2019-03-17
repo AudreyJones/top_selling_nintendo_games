@@ -30,7 +30,7 @@ class TopSellingNintendoGames::CLI
         game = TopSellingNintendoGames::Game.all.find do |game|
           @index == input
         end
-      TopSellingNintendoGames::Scraper.scrape_title(game)
+      TopSellingNintendoGames::Scraper.scraped_title(game)
         show_game_info(game)
       else
         puts "Oh no! Your input was invalid. Please try again!"

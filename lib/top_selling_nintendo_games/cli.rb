@@ -4,19 +4,19 @@ class TopSellingNintendoGames::CLI
     TopSellingNintendoGames::Scraper.scrape_index
     puts "Hello! It's-a me, the Nintendo Top Selling Game App! In-we-go!"
     puts ""
-    # list_games
-    show_menu
+    list_games
   end
 
   def list_games
-    puts "Top-selling Nintendo games:"
+    puts "Currently, the top-selling Nintendo games are:"
     puts ""
-    #Design-y stuff here
+                                                                                                          #Design-y stuff here
     show_menu
   end
 
   def show_menu
     TopSellingNintendoGames::Game.all.each.with_index(1) do |game, index|
+      @index = index
       puts "#{index}. #{game.title} - released: #{game.release_date} - #{game.price} for the #{game.console}"
       puts ""
     end
@@ -28,7 +28,7 @@ class TopSellingNintendoGames::CLI
     input = gets.strip.downcase
       if input.to_i.between?(1,TopSellingNintendoGames::Game.all.length)
         game = TopSellingNintendoGames::Game.all.find do |game|
-          index == input                    # Needs to be debugged
+          @index == input
         end
       TopSellingNintendoGames::Scraper.scrape_title(game)
         show_game_info(game)

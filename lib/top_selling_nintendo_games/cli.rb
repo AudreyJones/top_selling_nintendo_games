@@ -1,6 +1,5 @@
 class TopSellingNintendoGames::CLI
   def start
-
     TopSellingNintendoGames::Scraper.scrape_index
     puts "Hello! It's-a me, the Nintendo Top Selling Game App! In-we-go!"
     puts ""
@@ -40,12 +39,33 @@ class TopSellingNintendoGames::CLI
   end
 
   def show_game_info(game)
-    # use open links here!!
-    puts "Access #{game}'/s:"
+    puts "Would you like to access game info, add-on content, or reviews?:"
     puts ""
-    puts "The full game description, videos, and more! " + system(open(game.info))
-    puts "Any available add-on content: " + open(game.add_on_content)
-    puts "Industry reviews: " + open(game.reviews)
+    input = gets.strip.downcase
+    case input
+    when "game info"
+      system('open', url)
+    when "add-on content" #Needs to be optional
+      if #scraped == nil
+        puts "I'm sorry, this game does not have any add-on content."
+      else
+        system('open',url)
+    when "reviews"        #Needs to be optional
+      if #scraped == nil
+        puts "I'm sorry, this game does not have any reviews available at this time."
+      else
+        system('open',url)
+    else
+      puts "Mario?! Please try again!"
+      show_menu
+    end
+
+
+
+
+    # puts "The full game description, videos, and more! " + system(open(game.info))
+    # puts "Any available add-on content: " + open(game.add_on_content)
+    # puts "Industry reviews: " + open(game.reviews)
 
 
                                                                         # more Design-y things here...however the game info should look!

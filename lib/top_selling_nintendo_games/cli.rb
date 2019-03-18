@@ -22,7 +22,8 @@ class TopSellingNintendoGames::CLI
   end
 
   def make_a_selection
-    puts "Pick a game and let's-a go!"
+    puts ""
+    puts "Pick a game and let's-a go! Or to exit the app, enter 'exit'.".red.bold
     input = gets.strip.downcase
       if input.to_i.between?(1,TopSellingNintendoGames::Game.all.length)
         game = TopSellingNintendoGames::Game.all.find do |game|
@@ -30,7 +31,6 @@ class TopSellingNintendoGames::CLI
           TopSellingNintendoGames::Scraper.scraped_title(game)
             show_game_info(game)
         end
-
       else
         puts "Mario? MaRiO?! MAARRRRRRIIIOOOOOOOO!!!!!!!! (please try again)"
         puts ""
@@ -39,18 +39,24 @@ class TopSellingNintendoGames::CLI
   end
 
   def show_game_info(game)
-    puts "Enter in 'category', 'players', or 'rating' to access that information for your selected game, or 'menu' to return to the main game menu."
+    puts "Enter in 'description', 'category', 'players', or 'rating' to access that information for your selected game, or 'menu' to return to the main game menu."
     puts ""
     input = gets.strip.downcase
     case input
+    when "description"
+      puts "#{game.description.chomp}"
     when "category"
       puts "#{game.category}"
     when "players"
       puts "#{game.num_of_players}"
     when "rating"
       puts "#{game.rating}"
+    when "menu"
+      puts ""
+      show_menu
     else
       puts "Mario? MaRiO?! MAARRRRRRIIIOOOOOOOO!!!!!!!! (please try again)"
+      puts ""
       show_menu
     end
 
@@ -73,7 +79,7 @@ class TopSellingNintendoGames::CLI
   end
 
   def exit_app
-                                                                        # Design-y things here too....!
+    puts ""                                                                    
     puts "Okie Dokie! Have a great day!"
   end
 

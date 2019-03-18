@@ -1,13 +1,13 @@
 class TopSellingNintendoGames::CLI
   def start
     TopSellingNintendoGames::Scraper.scrape_index
-    puts "Hello! It's-a me, the Nintendo Top Selling Game App! In-we-go!"
+    puts "Hello! It's-a me, the Nintendo Top Selling Game App! In-we-go!".red.bold
     puts ""
     list_games
   end
 
   def list_games
-    puts "Currently, the top-selling Nintendo games are:"
+    puts "Currently, the top-selling Nintendo games are:".green.bold
     puts ""
                                                                                                           #Design-y stuff here
     show_menu
@@ -32,7 +32,7 @@ class TopSellingNintendoGames::CLI
         end
 
       else
-        puts "Oh no! Your input was invalid. Please try again!"
+        puts "Mario? MaRiO?! MAARRRRRRIIIOOOOOOOO!!!!!!!! (please try again)"
         puts ""
         show_menu
       end
@@ -44,13 +44,13 @@ class TopSellingNintendoGames::CLI
     input = gets.strip.downcase
     case input
     when "category"
-      puts game.category
+      puts "#{game.category}"
     when "players"
-      puts game.num_of_players
+      puts "#{game.num_of_players}"
     when "rating"
-      puts game.rating
+      puts "#{game.rating}"
     else
-      puts "Mario?! Please try again!"
+      puts "Mario? MaRiO?! MAARRRRRRIIIOOOOOOOO!!!!!!!! (please try again)"
       show_menu
     end
 

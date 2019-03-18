@@ -1,8 +1,6 @@
 # TopSellingNintendoGames
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/top_selling_nintendo_games`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a Ruby CLI gem that dynamically scrapes Nintendo's top-selling games page and allows the user to discover more information (game category, number of players, and rating) about the game of their choosing. Happy Gaming!
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To use the Top-Selling Nintendo Games CLI gem, simply type in your terminal: 'ruby lib/top_selling_nintendo_games.rb' or you can enable the gem to run via './bin/top_selling_nintendo_games'. To do this, you'll need to ensure that you have execute permissions. You can check your permissions via 'ls -lah', which will legibly list your files with their permissions represented by specific letters to the left of their filenames. If top_selling_nintendo_games is missing an 'x' (signifying execute permissions), you can add execute permissions by running 'chmod +x top_selling_nintendo_games' in your terminal. Now, you should be able to run the gem using './bin/top_selling_nintendo_games'! Congratulations and happy gaming!
 
 ## Development
 

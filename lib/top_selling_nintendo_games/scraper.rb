@@ -25,7 +25,7 @@ class TopSellingNintendoGames::Scraper
     end
   end
 
-  def self.scraped_title(game) # Goal: to have these attributes open up specific links!
+  def self.scraped_title(game) 
     game_page = Nokogiri::HTML(open(game.game_url))
     # game_page = game_page.css("div")
 

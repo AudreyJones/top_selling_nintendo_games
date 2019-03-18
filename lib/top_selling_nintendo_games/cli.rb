@@ -43,8 +43,6 @@ class TopSellingNintendoGames::CLI
     puts ""
     input = gets.strip.downcase
     case input
-    when "description"
-      puts "#{game.description.chomp}"
     when "category"
       puts "#{game.category}"
     when "players"

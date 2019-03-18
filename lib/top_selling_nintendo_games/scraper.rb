@@ -26,20 +26,12 @@ class TopSellingNintendoGames::Scraper
   end
 
   def self.scraped_title(game)
-    # array = []
-    binding.pry
-    game_page = Nokogiri::HTML(open(game.game_url))
-    # game_page.each do |chunk|
-    #     array << chunk
-    # end
-    # game_page = game_page.css("div.flex").attr("div.num_of_players")
-    game.num_of_players = game_page.css("div.flex").css("div.num-of-players")
+    game_page = Nokogiri::HTML(open(game.game_url)) #=> "https://www.nintendo.com/games/detail/XYfGbmHybciAx7wE3EiKIu8c32ip0ULk"
 
-  # binding.pry
+      game.num_of_players = game_page.css("div.flex div").css("dd.num-of-players").text
+      game.rating = game_page.css("div.flex span.esrb-rating").css('img').attr('alt').value
+      game.category = game_page.css("div.flex div").css("dd")[3].text
 
-    # game.category =
-    # game.num_of_players =
-    # game.rating =
   end
 
 

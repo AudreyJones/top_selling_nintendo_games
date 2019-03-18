@@ -39,7 +39,7 @@ class TopSellingNintendoGames::CLI
   end
 
   def show_game_info(game)
-    puts "Enter in 'category', 'players', or 'rating' to access that information for your selected game."
+    puts "Enter in 'category', 'players', or 'rating' to access that information for your selected game, or 'menu' to return to the main game menu."
     puts ""
     input = gets.strip.downcase
     case input

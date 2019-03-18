@@ -1,5 +1,5 @@
 class TopSellingNintendoGames::Game
-  attr_accessor :title, :release_date, :price, :console, :game_url, :game_info, :add_on_content, :reviews
+  attr_accessor :title, :release_date, :price, :console, :game_url, :category, :num_of_players, :rating
 
   @@all = []
 

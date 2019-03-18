@@ -6,7 +6,7 @@ class TopSellingNintendoGames::Scraper
 
   def self.scrape_index # Level One
     list_of_games = self.index_url.css("ul.games")
-      game_url = self.index_url.css("a").attr("href").text
+      game_url = list_of_games.css("a.main-link.quickview").attr("href").value
     list_of_games = list_of_games.css("div.info")
       list_of_games.each do |attribute|
         title = attribute.css("h3").text
@@ -25,11 +25,17 @@ class TopSellingNintendoGames::Scraper
     end
   end
 
-  def self.scraped_title(game) 
+  def self.scraped_title(game)
+    # array = []
+    binding.pry
     game_page = Nokogiri::HTML(open(game.game_url))
-    # game_page = game_page.css("div")
+    # game_page.each do |chunk|
+    #     array << chunk
+    # end
+    # game_page = game_page.css("div.flex").attr("div.num_of_players")
+    game.num_of_players = game_page.css("div.flex").css("div.num-of-players")
 
-  binding.pry
+  # binding.pry
 
     # game.category =
     # game.num_of_players =

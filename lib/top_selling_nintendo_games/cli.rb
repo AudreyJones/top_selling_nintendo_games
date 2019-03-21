@@ -31,6 +31,8 @@ class TopSellingNintendoGames::CLI
           TopSellingNintendoGames::Scraper.scraped_title(game)
             show_game_info(game)
         end
+      elsif input = "exit"
+        exit_app
       else
         puts "Mario? MaRiO?! MAARRRRRRIIIOOOOOOOO!!!!!!!! (please try again)"
         puts ""
@@ -39,23 +41,24 @@ class TopSellingNintendoGames::CLI
   end
 
   def show_game_info(game)
-    puts "Enter in 'description', 'category', 'players', or 'rating' to access that information for your selected game, or 'menu' to return to the main game menu."
+    puts "Enter in 'category', 'players', or 'rating' to access that information for your selected game, or 'menu' to return to the main game menu."
     puts ""
-    input = gets.strip.downcase
-    case input
-    when "category"
-      puts "#{game.category}"
-    when "players"
-      puts "#{game.num_of_players}"
-    when "rating"
-      puts "#{game.rating}"
-    when "menu"
-      puts ""
-      show_menu
-    else
+      input = gets.strip.downcase
+      case input
+      when "category"
+        puts "#{game.category}"
+      when "players"
+        puts "#{game.num_of_players}"
+      when "rating"
+        puts "#{game.rating}"
+      when "menu"
+        puts ""
+        show_menu
+    if (input != 'category') || (input != 'players') || (input != 'rating') || (input != 'menu')
       puts "Mario? MaRiO?! MAARRRRRRIIIOOOOOOOO!!!!!!!! (please try again)"
       puts ""
       show_menu
+    end
     end
 
 
@@ -77,7 +80,7 @@ class TopSellingNintendoGames::CLI
   end
 
   def exit_app
-    puts ""                                                                    
+    puts ""
     puts "Okie Dokie! Have a great day!"
   end
 

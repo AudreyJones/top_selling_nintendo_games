@@ -27,8 +27,7 @@ class TopSellingNintendoGames::Scraper
 
   def self.scraped_title(game)
     game_page = Nokogiri::HTML(open(game.game_url)) #=> "https://www.nintendo.com/games/detail/XYfGbmHybciAx7wE3EiKIu8c32ip0ULk"
-# binding.pry
-      game.description = game_page.css("div.bullet-list.drawer").text
+
       game.num_of_players = game_page.css("div.flex div").css("dd.num-of-players").text
       game.rating = game_page.css("div.flex span.esrb-rating").css('img').attr('alt').value
       game.category = game_page.css("div.flex div").css("dd")[3].text
